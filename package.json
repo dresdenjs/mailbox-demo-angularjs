@@ -1,0 +1,55 @@
+{
+  "author": "zalari",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-animate": "^1.5.6",
+    "angular-aria": "^1.5.6",
+    "angular-messages": "^1.5.6",
+    "angular-mocks": "^1.5.6",
+    "angular-sanitize": "^1.5.6",
+    "angular-route": "^1.5.6",
+    "angular-ui-router": "^0.2.18",
+    "lodash": "^4.2.1"
+  },
+  "description": "mailbox showcase angularjs",
+  "devDependencies": {
+    "babel": "^4.7.4",
+    "babel-core": "^4.7.4",
+    "babel-loader": "^4.1.0",
+    "css-loader": "^0.23.1",
+    "expose-loader": "^0.7.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.9.0",
+    "http-server": "^0.8.5",
+    "imports-loader": "^0.6.5",
+    "json-loader": "^0.5.4",
+    "ng-annotate-loader": "^0.1.0",
+    "node-sass": "^3.4.2",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "engines": {
+    "node": "^4.4.0"
+  },
+  "license": "LicenseRef-LICENSE",
+  "main": "index.js",
+  "name": "@zalari/mailbox-showcase-angularjs",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "buildDebug": "webpack -d",
+    "clean": "rm -rf dist/*",
+    "copy": "mkdir -p dist/assets && cp -r src/main/assets dist/",
+    "lint": "jshint $1",
+    "lintAll": "jshint src/main/js",
+    "package": "npm run clean && npm run copy && npm run build",
+    "packageDebug": "npm run clean && npm run copy && npm run buildDebug",
+    "serve": "webpack-dev-server --content-base src/main/ --hot --inline -v",
+    "serve:dist": "npm run package && http-server dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.1",
+  "private": true
+}

@@ -1,0 +1,9 @@
+<div>
+    <ul>
+        <li ng-repeat="message in messages"
+            ng-class="{active:activeMessage.id === message.id}"
+            ng-click="setActive(message)">
+            From: {{message.sender}} Subject: {{message.subject}}
+        </li>
+    </ul>
+</div>
