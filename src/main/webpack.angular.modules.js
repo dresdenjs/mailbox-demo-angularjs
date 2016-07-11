@@ -24,7 +24,7 @@ require('./js/app.routes')(ngModule);
 require('./js/app.run')(ngModule);
 
 //our own application modules and shared + gui files
-// require('./js/shared')(ngModule);
+require('./js/shared')(ngModule);
 // require('./js/gui')(ngModule);
 require('./js/modules')(ngModule);
 require('./js/mocks')(ngModule);

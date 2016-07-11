@@ -1,9 +1,14 @@
 <div>
+    <!--filter-->
+    <div>
+        <input type="text" ng-model="searchText"/>
+    </div>
     <ul>
-        <li ng-repeat="message in messages"
+        <li ng-repeat="message in messages | filter:searchText" post-repeat-action
             ng-class="{active:activeMessage.id === message.id}"
             ng-click="setActive(message)">
-            From: {{message.sender}} Subject: {{message.subject}}
+            From: {{message.from}} To: {{message.to}} Date: {{message.time}} Subject: {{message.subject}}
+
         </li>
     </ul>
 </div>

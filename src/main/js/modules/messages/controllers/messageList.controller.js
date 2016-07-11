@@ -1,7 +1,7 @@
 'use strict';
 
 export default ngModule => {
-  ngModule.controller('MessageListController', function ($scope, $stateParams, $log, Messages) {
+  ngModule.controller('MessageListController', function ($scope, $stateParams, $log, Messages, $rootScope) {
 
     require('../styles/messages.scss');
 
@@ -14,6 +14,7 @@ export default ngModule => {
     $scope.activeMessage = Messages[0];
 
     $scope.fetch = function (limit) {
+      $rootScope.timerStart = new Date();
       Messages.fetch(limit)
         .then(function (messages) {
           $log.debug('got messages: %O', messages);
