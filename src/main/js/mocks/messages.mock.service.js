@@ -7,19 +7,19 @@ export default ngModule => {
 
     let self = this;
 
-    this.all = function () {
-      return $q.when(_staticMessages);
+    this.all = function (limit = 100) {
+      return $q.when(_staticMessages.slice(0, limit));
     };
 
 
-    this.getInboxMessages = function () {
-      return self.all().then(function (allMessages) {
+    this.getInboxMessages = function (limit = 100) {
+      return self.all(limit).then(function (allMessages) {
         return _.filter(allMessages, (message) => _.includes(message.labels, 'inbox'));
       });
     };
 
-    this.getSentMessages = function () {
-      return self.all().then(function (allMessages) {
+    this.getSentMessages = function (limit = 100) {
+      return self.all(limit).then(function (allMessages) {
         return _.filter(allMessages, (message) => _.includes(message.labels, 'sent'));
       });
     };

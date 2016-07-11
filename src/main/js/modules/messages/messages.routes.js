@@ -10,7 +10,13 @@ export default ngModule => {
         template: require('./views/messageList.view.html'),
         resolve: {
           Messages : function (MessageService) {
-            return MessageService.getInboxMessages();
+            return MessageService.getInboxMessages()
+              .then(function (messages) {
+                return {
+                  initial : messages,
+                  fetch : MessageService.getInboxMessages
+                }
+              });
           }
         }
       })
@@ -20,7 +26,13 @@ export default ngModule => {
         template: require('./views/messageList.view.html'),
         resolve: {
           Messages : function (MessageService) {
-            return MessageService.getSentMessages();
+            return MessageService.getSentMessages()
+              .then(function (messages) {
+                return {
+                  initial : messages,
+                  fetch : MessageService.getSentMessages
+                }
+              });
           }
         }
       });

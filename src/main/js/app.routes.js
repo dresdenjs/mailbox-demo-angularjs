@@ -11,6 +11,6 @@ export default ngModule => {
       });
 
     // For any unmatched url, redirect to first view
-    $urlRouterProvider.otherwise('/main/messages/inbox');
+    $urlRouterProvider.otherwise('/main/messages/inbox/');
   });
 }
