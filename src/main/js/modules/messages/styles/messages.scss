@@ -33,6 +33,7 @@
 .filter + ul {
   overflow: hidden;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mailboxes,
