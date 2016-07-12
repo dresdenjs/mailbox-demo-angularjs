@@ -14,6 +14,7 @@ export default ngModule => {
     $scope.activeMessage = Messages[0];
 
     $scope.fetch = function (limit) {
+      $scope.currentLimit = limit;
       $rootScope.timerStart = new Date();
       Messages.fetch(limit)
         .then(function (messages) {
@@ -24,7 +25,8 @@ export default ngModule => {
 
 
     var _initialize = function () {
-      //...
+      $scope.limits = [100, 200, 500, 1000, 5000, 10000];
+      $scope.currentLimit = _.head($scope.limits);
     };
 
     _initialize();
