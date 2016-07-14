@@ -36,9 +36,13 @@
   "engines": {
     "node": "^4.4.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zalari/mailbox-demo-angularjs.git"
+  },
   "license": "LicenseRef-LICENSE",
   "main": "index.js",
-  "name": "@zalari/mailbox-showcase-angularjs",
+  "name": "@zalari/mailbox-demo-angularjs",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "buildDebug": "webpack -d",
