@@ -1,0 +1,17 @@
+<!--toolbar-->
+<div class="toolbar">
+    <button type="button"
+            ng-repeat="limit in limits"
+            ng-click="fetch(limit)"
+            ng-class="{'active': currentLimit === limit}">
+        Fetch {{limit}}
+    </button>
+</div>
+<!--List of message-->
+<section class="messages" ng-class="{'active-message': activeMessage}">
+    <list-messages messages="messages" active-message="activeMessage"></list-messages>
+</section>
+<!--Detail for individual message-->
+<section ng-if="activeMessage">
+    <show-message message="activeMessage"></show-message>
+</section>

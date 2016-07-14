@@ -1,0 +1,182 @@
+@mixin icon($icon) {
+  content: '#{$icon}';
+  display: inline-block;
+  font: normal 24px/1 'Material Icons';
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+.mailboxes,
+.mailboxes ~ [ui-view],
+.mailboxes ~ [ui-view] section {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mailboxes,
+.mailboxes ~ [ui-view] section {
+  float: left;
+  overflow: hidden;
+}
+
+.mailboxes,
+.mailboxes ~ [ui-view] section + section,
+.filter + ul {
+  overflow: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mailboxes,
+.mailboxes ~ [ui-view] section.active-message {
+  border-right: 1px solid #bfbfbf;
+}
+
+.mailboxes ~ [ui-view] section li,
+.mailboxes ~ [ui-view] section + section,
+.toolbar,
+.filter {
+  padding: 8px;
+}
+
+.mailboxes ~ [ui-view] section {
+  width: 100%;
+  height: calc(100% - 41px);
+
+  &.active-message {
+    padding: 0;
+  }
+
+  li {
+    border-top: 1px solid #bfbfbf;
+
+    &:first-child {
+      border: none;
+    }
+  }
+}
+
+.mailboxes,
+.toolbar,
+.filter {
+  background-color: #e9eef2;
+}
+
+.mailboxes {
+  width: 20%;
+
+  li a {
+    position: relative;
+    display: block;
+    padding: 0 8px 0 36px;
+    line-height: 40px;
+    color: #212121;
+    text-decoration: none;
+
+    &:before {
+      @include icon(inbox);
+
+      position: absolute;
+      top: 0;
+      left: 8px;
+      line-height: 40px;
+    }
+
+    &.active {
+      background-color: #d3dbe2;
+    }
+  }
+}
+
+.mailboxes ~ [ui-view] {
+  position: relative;
+  display: block;
+  height: 100%;
+
+  section.active-message,
+  section + section {
+    width: 50%;
+  }
+}
+
+.toolbar,
+.filter {
+  box-sizing: border-box;
+  height: 41px;
+  padding: 8px;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+.toolbar button {
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.filter {
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 6px;
+    line-height: 24px;
+    white-space: nowrap;
+    outline: none;
+    border: 1px solid #bfbfbf;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, .75);
+    transition: background-color .2s ease;
+
+    &:active,
+    &:focus {
+      background-color: #fff;
+    }
+  }
+  + ul {
+    height: calc(100% - 41px);
+  }
+}
+
+.messages {
+  li {
+    position: relative;
+    outline: none;
+    cursor: pointer;
+
+    span {
+      display: block;
+
+      &.from {
+        padding-right: 100px;
+        font-weight: 600;
+      }
+      &.date,
+      &.subject {
+        opacity: .58;
+      }
+      &.date {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 95px;
+      }
+    }
+
+    &.active {
+      color: #fff;
+      background-color: #6f6f73;
+    }
+  }
+}
+
